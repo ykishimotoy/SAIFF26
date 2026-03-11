@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>札幌すごいAIまつり | 2026.2.15 開催</title>
-    <meta name="description" content="2026年2月15日、札幌にAIの炎を。学び、挑み、楽しむ。市民発のAIプロジェクト、点火。">
-    <!-- OGP Tags for Zenn and Social Media -->
-    <meta property="og:title" content="札幌すごいAIまつり | 2026.2.15 開催">
-    <meta property="og:description" content="2026年2月15日、札幌にAIの炎を。学び、挑み、楽しむ。市民発のAIプロジェクト、点火。">
+    <title>札幌AI映画祭2026夏 | 作品募集中</title>
+    <meta name="description" content="生成AIによる映像作品を募集します。AIを使った映画表現を、札幌のスクリーンで上映するコミュニティ型映画祭。2026年6月開催。">
+    <!-- OGP Tags -->
+    <meta property="og:title" content="札幌AI映画祭2026夏 | 作品募集中">
+    <meta property="og:description" content="生成AIによる映像作品を募集します。AIを使った映画表現を、札幌のスクリーンで上映するコミュニティ型映画祭。2026年6月開催。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://matsuri.sugoiai.org/">
-    <meta property="og:site_name" content="札幌すごいAIまつり">
-    <meta property="og:image" content="https://matsuri.sugoiai.org/logo.png">
+    <meta property="og:url" content="https://film.sugoiai.org/">
+    <meta property="og:site_name" content="札幌AI映画祭2026夏">
+    <meta property="og:image" content="https://film.sugoiai.org/logo.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="ja_JP">
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="札幌すごいAIまつり | 2026.2.15 開催">
-    <meta name="twitter:description" content="2026年2月15日、札幌にAIの炎を。学び、挑み、楽しむ。市民発のAIプロジェクト、点火。">
-    <meta name="twitter:image" content="https://matsuri.sugoiai.org/logo.png">
+    <meta name="twitter:title" content="札幌AI映画祭2026夏 | 作品募集中">
+    <meta name="twitter:description" content="生成AIによる映像作品を募集します。AIを使った映画表現を、札幌のスクリーンで上映するコミュニティ型映画祭。2026年6月開催。">
+    <meta name="twitter:image" content="https://film.sugoiai.org/logo.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
@@ -29,289 +29,293 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-background">
-            <div class="flame-particle"></div>
-            <div class="flame-particle"></div>
-            <div class="flame-particle"></div>
+            <div class="film-particle"></div>
+            <div class="film-particle"></div>
+            <div class="film-particle"></div>
+        </div>
+        <div class="hero-placeholder-wrap">
+            <!-- [PLACEHOLDER] メインビジュアル画像（推奨: 1920×1080px、映画祭ロゴ入りキービジュアル） -->
         </div>
         <div class="container hero-content">
-            <div class="hero-date">2026.2.15</div>
+            <div class="hero-date">2026.6</div>
+            <div class="hero-badge">作品募集中</div>
             <h1 class="hero-title">
-                <span class="title-main">札幌すごいAIまつり</span>
-                <span class="title-sub">Sapporo Sugoi AI Festival</span>
+                <span class="title-main">札幌AI映画祭2026夏</span>
+                <span class="title-sub">Sapporo AI Film Festival 2026 Summer</span>
             </h1>
-            <p class="hero-tagline">札幌にAIの炎を。<br>学び、挑み、楽しむ。<br>市民発のAIプロジェクト、点火。</p>
+            <p class="hero-tagline">生成AIで映像を作って、<br>札幌のスクリーンで上映しよう。</p>
             <div class="hero-info-badge">
-                <span>無料</span>
-                <span>入退場自由</span>
-                <span>事前申込不要</span>
+                <span>会場上映</span>
+                <span>YouTube配信</span>
+                <span>初心者OK</span>
             </div>
             <div class="hero-cta">
-                <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <span class="btn-icon">💬</span>
-                    <span class="btn-text">札幌すごいAI会 Discord に参加</span>
+                <a href="#apply" class="btn btn-primary">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-text">作品を応募する</span>
+                </a>
+                <a href="#divisions" class="btn btn-secondary">
+                    <span class="btn-text">募集部門を見る</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Event Overview -->
+    <!-- Overview Section -->
     <section id="overview" class="section overview">
-        <canvas id="flameCanvas" class="flame-canvas"></canvas>
+        <canvas id="filmGrainCanvas" class="film-grain-canvas"></canvas>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <span class="title-en">OVERVIEW</span>
-                    <span class="title-ja">イベント概要</span>
+                    <span class="title-ja">開催概要</span>
                 </h2>
             </div>
             <div class="overview-content">
                 <div class="overview-main">
-                    <img src="images/DTC.JPG" alt="Deep Tech CORE SAPPORO 会場" class="venue-image">
+                    <div class="overview-image-wrap">
+                        <img src="images/DTC.JPG" alt="Deep Tech CORE SAPPORO 会場" class="venue-image">
+                    </div>
                     <div class="overview-text">
-                        <h3 class="overview-subtitle">札幌に、AIの炎を灯す</h3>
-                        <p>2026年2月15日、札幌の最先端テックコミュニティの中心地 <strong>Deep Tech CORE SAPPORO</strong> にて、かつてないAIの祭りが開催されます。</p>
-                        <p>札幌のあちこちで灯り始めたAIの「種火」をつなぎ、AIを使える人が育ち、挑戦し、楽しむ文化を生み出す試み。私たちは、この札幌を「AIと共に生きる街」にしたい。その第一歩が『札幌すごいAIまつり』です。</p>
+                        <h3 class="overview-subtitle">AIの映像表現を、札幌から</h3>
+                        <p>生成AIによる映像制作を誰でも体験できる、コミュニティ型の映画祭です。初心者から経験者まで、どなたでも応募できます。</p>
+                        <p>あなたが作ったAI映画を、<strong>Deep Tech CORE SAPPORO</strong> の大スクリーンで上映します。現地来場とYouTube同時配信で、多くの人に届けます。</p>
                         <div class="event-info">
                             <div class="info-item">
-                                <div class="info-label">開催日時</div>
-                                <div class="info-value">2026年2月15日（日）10:00〜18:00（常設展示）</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">イベント</div>
-                                <div class="info-value">
-                                    <table class="event-schedule-table">
-                                        <tr><td>11:00-12:00<br><span class="broadcast-time">（配信 13:00~14:00）</span></td><td>AIビジネスコンテスト</td></tr>
-                                        <tr><td>14:00-15:00<br><span class="broadcast-time">（配信 16:00~17:00）</span></td><td>AI芸術祭</td></tr>
-                                        <tr><td>16:00-17:30</td><td>AI LT会</td></tr>
-                                    </table>
-                                </div>
+                                <div class="info-label">開催予定</div>
+                                <div class="info-value">2026年6月</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">会場</div>
-                                <div class="info-value">Deep Tech CORE SAPPORO<br>超巨大スクリーン・ピッチエリア＋展示ブース 全面貸切</div>
+                                <div class="info-value">Deep Tech CORE SAPPORO</div>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=KJ8rVP_wnto" target="_blank" class="youtube-btn">▶ AIビジネスコンテスト配信</a>
-                            <a href="https://www.youtube.com/watch?v=04k-LU-6Dw8" target="_blank" class="youtube-btn">▶ AI芸術祭配信</a>
-                            <a href="https://www.youtube.com/watch?v=8tLE9qQqJjQ" target="_blank" class="youtube-btn">▶ AIなんでもLT会配信</a>
+                            <div class="info-item">
+                                <div class="info-label">上映形式</div>
+                                <div class="info-value">会場スクリーン上映 ＋ YouTube同時配信</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">応募締切</div>
+                                <div class="info-value">2026年◯月◯日（予定）</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">上映予定日</div>
+                                <div class="info-value">2026年6月◯日（予定）</div>
+                            </div>
                         </div>
+                        <p class="overview-note">※応募作品数が上限に達した場合、募集を早期終了する場合があります。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section id="partners" class="section sponsors">
+    <!-- Divisions Section -->
+    <section id="divisions" class="section divisions">
+        <canvas id="projectorCanvas" class="projector-canvas"></canvas>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
-                    <span class="title-en">PARTNERS</span>
-                    <span class="title-ja">協力企業・団体</span>
+                    <span class="title-en">DIVISIONS</span>
+                    <span class="title-ja">募集部門</span>
                 </h2>
-                <p class="section-description">AIまつりを支えてくださる企業・団体の皆さまです。<br>温かいご協力に心より感謝申し上げます。</p>
+                <p class="section-description">あなたのAI映像作品を、2つの部門でお待ちしています</p>
             </div>
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <img src="images/DTC_logo.png" alt="DTC株式会社">
+            <div class="divisions-grid">
+
+                <!-- Division 1: 上映作品部門 -->
+                <div class="division-card division-main">
+                    <div class="division-number">01</div>
+                    <div class="division-image-wrap">
+                        <img src="images/dtceiga.jpg" alt="上映作品部門" class="division-image">
                     </div>
-                    <div class="partner-name">DTC株式会社</div>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <img src="images/NTTDMSE_logo.png" alt="株式会社NTTデータMSE">
+                    <div class="division-content">
+                        <div class="division-badge badge-main">メイン部門</div>
+                        <h3 class="division-title">上映作品部門</h3>
+                        <p class="division-subtitle">Screening Division</p>
+                        <p class="division-duration">上映時間：<strong>3分〜10分</strong></p>
+                        <p class="division-description">
+                            AI生成を主要手法として制作された映像作品を募集します。ストーリー作品、アート作品、MVなど、ジャンルは自由です。言語も自由ですが、日本語以外の作品または日本語が不自然な作品は日本語字幕必須となります。
+                        </p>
+                        <div class="division-highlight">
+                            特に、札幌会場に当日来場できるクリエイターの作品は優先的に上映します。
+                        </div>
+                        <div class="division-details">
+                            <h4>上映方式</h4>
+                            <ul>
+                                <li>先着応募作品（要件を満たす作品）</li>
+                                <li>札幌現地来場クリエイター枠（優先枠）</li>
+                            </ul>
+                            <p class="division-broadcast">会場スクリーン ＋ YouTube配信で上映</p>
+                        </div>
                     </div>
-                    <div class="partner-name">株式会社NTTデータMSE</div>
                 </div>
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <img src="images/Basement_Logo2025_Screen.png" alt="Red Bull Basement">
+
+                <!-- Division 2: 実験部門 -->
+                <div class="division-card division-exp">
+                    <div class="division-number">02</div>
+                    <div class="division-image-wrap">
+                        <img src="images/tikukann.jpg" alt="実験部門" class="division-image">
                     </div>
-                    <div class="partner-name">Red Bull Basement</div>
+                    <div class="division-content">
+                        <div class="division-badge badge-exp">Experimental</div>
+                        <h3 class="division-title">実験部門</h3>
+                        <p class="division-subtitle">Experimental Division</p>
+                        <p class="division-duration">上映時間：<strong>1分〜5分</strong></p>
+                        <p class="division-description">
+                            実験的・挑戦的なAI映像作品を歓迎する部門です。初めてAI映像制作に挑戦した方や、AIツールを試してみたい方にもおすすめです。
+                        </p>
+                        <div class="division-highlight">
+                            初心者の方や、AI映像制作を試してみたい方にもおすすめの部門です。
+                        </div>
+                        <div class="division-details">
+                            <h4>歓迎する作品</h4>
+                            <ul>
+                                <li>AI動画生成の実験作品</li>
+                                <li>新しい映像表現の試み</li>
+                                <li>AIツールのテスト作品</li>
+                                <li>初めてAI映像制作に挑戦した作品</li>
+                            </ul>
+                            <h4>上映方式</h4>
+                            <p class="division-broadcast">審査員が選抜した作品を<br>会場スクリーン ＋ YouTube配信で上映</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Programs -->
-    <section id="programs" class="section programs">
-        <canvas id="blazingFlameCanvas" class="blazing-flame-canvas"></canvas>
+    <!-- Application Section -->
+    <section id="apply" class="section application">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
-                    <span class="title-en">PROGRAMS</span>
-                    <span class="title-ja">3つのプログラム</span>
+                    <span class="title-en">HOW TO APPLY</span>
+                    <span class="title-ja">応募について</span>
                 </h2>
-                <p class="section-description">挑み、創り、体感する。AIの可能性を最大限に引き出す3つの体験</p>
             </div>
-            <div class="programs-grid">
-                <!-- Program 1: AIビジコン -->
-                <div class="program-card program-1">
-                    <div class="program-number">01</div>
-                    <img src="images/AIビジコン.png" alt="AIビジネスコンテスト" class="program-image">
-                    <div class="program-content">
-                        <h3 class="program-title">AIビジネスコンテスト</h3>
-                        <p class="program-subtitle">AI Business Contest</p>
-                        <p class="program-description">
-                            市民がAIで生み出す新しいビジネスアイデアを発表する場。初心者でも応募できるビギナー枠と、実践者が本気を出す玄人枠を設置。「できる人」のみならず、「挑む人全員」が主役です。
-                        </p>
-                        <div class="program-highlight">
-                            ビジネス未経験でも大丈夫。AIと二人三脚で、新しい挑戦を
-                        </div>
-                    </div>
+            <div class="application-grid">
+
+                <!-- 応募条件 -->
+                <div class="apply-card">
+                    <div class="apply-card-icon">✅</div>
+                    <h3 class="apply-card-title">応募条件</h3>
+                    <ul class="apply-list">
+                        <li>AI生成ツールを使用した映像作品であること</li>
+                        <li>応募者自身が制作した作品であること</li>
+                        <li>著作権・肖像権等の権利を侵害していないこと</li>
+                        <li>言語は自由</li>
+                        <li>日本語以外の作品、または日本語が不自然な作品には日本語字幕を付けること</li>
+                    </ul>
                 </div>
 
-                <!-- Program 2: AI芸術祭 -->
-                <div class="program-card program-2">
-                    <div class="program-number">02</div>
-                    <img src="images/AI芸術祭.png" alt="AI芸術祭" class="program-image">
-                    <div class="program-content">
-                        <h3 class="program-title">AI芸術祭</h3>
-                        <p class="program-subtitle">AI Arts Festival</p>
-                        <p class="program-description">
-                            AIを使ったアート・音楽・映像のライブショーを、観客参加型で実施。アーティストやクリエイター、そして市民が、AIと共に作品を生み出すライブステージ。人がAIと「共に創る」瞬間を体感できます。
-                        </p>
-                        <div class="program-highlight">
-                            アートとテクノロジーの境界を越える体験
-                        </div>
-                    </div>
+                <!-- 応募形式 -->
+                <div class="apply-card">
+                    <div class="apply-card-icon">📋</div>
+                    <h3 class="apply-card-title">応募形式</h3>
+                    <p class="apply-card-subtitle">以下の情報を提出してください</p>
+                    <ul class="apply-list apply-list-check">
+                        <li>作品タイトル</li>
+                        <li>部門（上映作品部門 / 実験部門）</li>
+                        <li>上映時間</li>
+                        <li>動画URL（mp4 / YouTube / Google Drive 等）</li>
+                        <li>作品あらすじ</li>
+                        <li>作者名（ハンドルネーム可）</li>
+                        <li>プロフィールまたはSNSアカウント</li>
+                        <li>使用したAIツール（任意）</li>
+                    </ul>
                 </div>
 
-                <!-- Program 3: AI展示・体験・LT会 -->
-                <div class="program-card program-3">
-                    <div class="program-number">03</div>
-                    <img src="images/AI展示体験会.png" alt="AI展示・体験・LT会" class="program-image">
-                    <div class="program-content">
-                        <h3 class="program-title">AI展示・体験・LT会</h3>
-                        <p class="program-subtitle">AI Exhibition & Experience & LT</p>
-                        <p class="program-description">
-                            Deep Tech CORE SAPPOROの巨大展示ブースにて、市民が作り上げたAI作品の展示と体験会を開催。実際に手を動かし、AIの可能性を肌で感じることができる参加型の展示空間です。また、日頃のAI活動をLTで発表する場も設けています。
-                        </p>
-                        <div class="program-highlight">
-                            見るだけでなく、触れて、試して、発表して、AIを体感
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <div class="programs-participation">
-                <div class="participation-content">
-                    <h3 class="participation-title">誰でも、無料で挑戦できる</h3>
-                    <p class="participation-description">登壇・展示・創作。必要なのは、少しの勇気とAIを学ぶ意欲だけ。<br>詳しい参加要件や応募方法は、Discordコミュニティでご案内しています。</p>
-                    <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-                        <span class="btn-icon">💬</span>
-                        <span class="btn-text">札幌すごいAI会 Discord に参加</span>
-                    </a>
+            <div class="apply-cta">
+                <!-- [PLACEHOLDER] 応募フォームのリンク（Googleフォームなど、公開後にURLを設定） -->
+                <div class="apply-form-placeholder">
+                    <span class="placeholder-icon">📝</span>
+                    <p>応募フォームは近日公開予定です</p>
+                    <p class="apply-note">詳細は <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer">Discord</a> でご案内します</p>
                 </div>
+                <!-- 公開後は上記を削除し、以下のボタンを有効化 -->
+                <!--
+                <a href="[応募フォームURL]" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-text">応募フォームへ</span>
+                </a>
+                -->
             </div>
+        </div>
+    </section>
 
-            <div class="fish-art-collection">
-                <div class="fish-art-content">
-                    <div class="fish-art-icon">🐟</div>
-                    <h3 id="fish-art" class="fish-art-title">魚の絵を募集中！</h3>
-                    <div class="fish-art-video">
-                        <iframe
-                            src="https://www.youtube.com/embed/g9D3o8O7LR4"
-                            title="魚の絵募集について"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <p class="fish-art-description">
-                        あなたが描いた魚の絵を写真に撮ってメールで送ってください。<br>
-                        会場の大画面で、みんなの魚が海を泳ぐアニメーション展示になります！
-                    </p>
-                    <a href="mailto:sugoiaikai@gmail.com?subject=魚の絵を送ります&body=魚の絵を送ります。%0A%0A※送付いただいた作品は展示・活動報告等に使用する場合があります（個人情報は掲載いたしません）。%0A※送付をもって、公式サイト記載の内容にご同意いただいたものといたします。%0A※詳細は公式サイト（https://matsuri.sugoiai.org/）をご確認ください。" class="btn btn-secondary btn-large">
-                        <span class="btn-icon">📧</span>
-                        <span class="btn-text">魚の絵を送る（メール）</span>
-                    </a>
-                    <p class="fish-art-notes">
-                        ※締切は2月13日(金)です<br>
-                        ※画材・用紙サイズ自由（1枚からOK、何枚でも歓迎です）<br>
-                        ※作品名や個人情報の掲載は行いません<br>
-                        ※送付いただいた作品は、札幌すごいAIまつりおよび今後の関連イベントにおいて、展示・AI動画化・活動報告・広報（Web/SNS/印刷物/動画等）に使用させていただく場合があります。<br>
-                        ※作品の送付をもって、上記の使用に同意いただいたものとみなします。
-                    </p>
+    <!-- Awards Section -->
+    <section id="awards" class="section awards">
+        <canvas id="sparkCanvas" class="spark-canvas"></canvas>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-en">AWARDS</span>
+                    <span class="title-ja">賞</span>
+                </h2>
+                <p class="section-description">上映作品の中から審査員により選出します</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card award-main">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">作品賞</h3>
+                    <p class="award-division">上映作品部門</p>
+                    <p class="award-description">上映作品部門の応募作品の中から、最も優れた作品に授与します。</p>
+                </div>
+                <div class="award-card award-exp">
+                    <div class="award-icon">⚗️</div>
+                    <h3 class="award-title">実験部門賞</h3>
+                    <p class="award-division">実験部門 (Experimental)</p>
+                    <p class="award-description">実験部門の応募作品の中から、最も挑戦的・革新的な作品に授与します。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Dojo Section -->
-    <section id="ai-dojo" class="section ai-dojo">
+    <!-- About Section -->
+    <section id="about" class="section about-festival">
         <canvas id="rippleCanvas" class="ripple-canvas"></canvas>
         <div class="container">
-            <div class="dojo-content">
-                <div class="dojo-text">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <span class="title-en">AI LEARNING</span>
-                            <span class="title-ja">全てを支える学びの場</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+                        <h2 class="section-title" style="align-items: flex-start;">
+                            <span class="title-en">ABOUT</span>
+                            <span class="title-ja">札幌AI映画祭について</span>
                         </h2>
                     </div>
-                    <h3 class="dojo-name">すごいAI道場</h3>
-                    <p class="dojo-subtitle">AI Learning Platform - 無償で学べるe-learningサイト</p>
-                    <p class="dojo-description">
-                        AIをゼロから実践的に学び、リアルでの挑戦に直結させる、オンライン学習サイト。ビジネス作りやクリエイティブ作りに体系的に接続できるように設計されています。
+                    <p class="about-lead">
+                        札幌AI映画祭は、AIによる映像制作を誰でも体験できるコミュニティ型映画祭です。
                     </p>
-                    <p class="dojo-description">
-                        <strong>全国どこからでも、誰でも無償でアクセス可能。</strong>まつりの参加者だけでなく、すべての人がAIの基礎知識を学び、3つのプログラムに挑戦するための土台を築くことができます。
+                    <p>
+                        生成AIの進化により、映像制作の敷居はかつてないほど低くなりました。アイデアさえあれば、プロでなくても、高価な機材がなくても、自分だけの映像作品を作ることができます。
                     </p>
-                    <div class="dojo-features">
-                        <div class="dojo-feature">
-                            <span class="feature-icon">📚</span>
-                            <span class="feature-text">ゼロから学べる体系的カリキュラム</span>
+                    <p>
+                        この映画祭は、そんなAI映像クリエイターたちが集まり、作品を発表し、つながる場所です。
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="feature-icon">🎬</span>
+                            <span class="feature-text">AI映画の作り方やチュートリアルも公開予定</span>
                         </div>
-                        <div class="dojo-feature">
-                            <span class="feature-icon">💡</span>
-                            <span class="feature-text">ビジネス・クリエイティブに直結</span>
+                        <div class="about-feature">
+                            <span class="feature-icon">🌱</span>
+                            <span class="feature-text">初めての方もぜひ挑戦してください</span>
                         </div>
-                        <div class="dojo-feature">
-                            <span class="feature-icon">🌏</span>
-                            <span class="feature-text">全国どこからでも無償で利用可能</span>
+                        <div class="about-feature">
+                            <span class="feature-icon">📡</span>
+                            <span class="feature-text">会場上映 ＋ YouTubeで全国配信</span>
                         </div>
                     </div>
-                    <div class="dojo-release-schedule">
-                        <p class="schedule-label">📅 リリーススケジュール</p>
-                        <ul class="schedule-list">
-                            <li><strong>現在</strong>：β版公開中（学習コンテンツ15個公開中）</li>
-                            <li><strong>3月中</strong>：ビジネス全コンテンツ公開予定</li>
-                        </ul>
-                    </div>
-                    <a href="https://dojo.sugoiai.org/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large dojo-cta">
-                        <span class="btn-text">すごいAI道場で学び始める</span>
-                    </a>
                 </div>
-                <div class="dojo-image">
-                    <img src="images/すごいAI道場.png" alt="すごいAI道場 学習サイト" class="dojo-site-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Proposition -->
-    <section id="value" class="section value-proposition">
-        <canvas id="sandstormCanvas" class="sandstorm-canvas"></canvas>
-        <div class="container">
-            <div class="value-content">
-                <div class="value-text">
-                    <h2 class="value-title">なぜ、このまつりを立ち上げたのか</h2>
-                    <blockquote class="value-quote">
-                        「AIに触れたことがない」<br>
-                        「何ができるのか分からない」
-                    </blockquote>
-                    <p>札幌でAIイベントを続ける中で、参加者230名の多くからこう聞きました。</p>
-                    <p>でも私は知っています。<strong>AIは人の可能性を劇的に拡張する</strong>ことを。今までできる訳がないと思っていた夢を、手応えのある現実として一緒に作ってくれるパートナーだということを。</p>
-                    <p class="value-emphasis">その瞬間、人の顔が変わる。不安が希望に変わる。</p>
-                    <p>この「できた！」の連鎖こそ、次の時代のエネルギーになる。そして、札幌にはそれを支える土壌がある。種火が燃えている。</p>
-                    <p class="value-cta-text">だからこそ、そこに燃料を投下して、大きな炎に育て上げたい。<br><strong>いまこの街から始めたいのです。</strong></p>
-                </div>
-                <div class="value-image">
-                    <img src="images/イベント参加者.JPG" alt="イベント参加者の様子" class="value-photo">
+                <div class="about-image">
+                    <img src="images/tsutaho.jpg" alt="イベントの雰囲気" class="about-photo">
                 </div>
             </div>
         </div>
@@ -321,47 +325,43 @@
     <section id="cta" class="section cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">一緒に札幌にAIの炎を</h2>
-                <p class="cta-description">あなたが灯す支援のひとつひとつが、札幌にAIの炎を広げます。<br>一緒に、AIを学び・挑み・楽しむ文化を育てていきましょう。</p>
+                <h2 class="cta-title">あなたのAI映像を、<br>スクリーンへ</h2>
+                <p class="cta-description">初心者から経験者まで、どなたでも応募できます。<br>AIで映像を作ったことがある方も、これから挑戦する方も、ぜひ。</p>
                 <div class="cta-buttons">
-                    <a href="https://dojo.sugoiai.org/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-                        <span class="btn-text">すごいAI道場で学ぶ</span>
+                    <a href="#apply" class="btn btn-primary btn-large">
+                        <span class="btn-icon">🎬</span>
+                        <span class="btn-text">応募方法を確認する</span>
                     </a>
-                    <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-                        <span class="btn-text">札幌すごいAI会 Discord に参加</span>
+                    <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-large">
+                        <span class="btn-text">Discord で最新情報を受け取る</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Organizer -->
+    <!-- Organizer Section -->
     <section id="organizer" class="section organizer">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <span class="title-en">ORGANIZER</span>
-                    <span class="title-ja">主催者</span>
+                    <span class="title-ja">主催</span>
                 </h2>
             </div>
             <div class="organizer-content">
-                <div class="organizer-image">
-                    <img src="images/メイン正方形.JPG" alt="岸本悠佑 - 札幌のAIサムライ" class="organizer-photo">
+                <div class="organizer-photo-wrap">
+                    <img src="images/メイン正方形.JPG" alt="主催者" class="organizer-photo">
                 </div>
                 <div class="organizer-info">
-                    <h3 class="organizer-name">岸本 悠佑</h3>
-                    <p class="organizer-title">札幌のAIサムライ</p>
-                    <div class="organizer-bio">
-                        <p>札幌すごいAI会 代表 / 一児の父親</p>
-                        <p class="organizer-note">AIサムライ：趣味は尺八、特技は刀。</p>
-                    </div>
-                    <div class="organizer-message">
-                        <h4>我が子の誕生が、このプロジェクトの原動力</h4>
-                        <p>2025年7月、第一子が生まれました。親になって初めて、我が子が生きる未来の札幌を、真剣に想うようになりました。</p>
-                        <p>この子が大人になる頃、「AIを恐れる社会」ではなく、<strong>「誰もがAIを使いこなして人生を広げる社会」</strong>であってほしい。</p>
-                        <p>そのためには、今この瞬間から、大人たちが楽しみながらAIを学ぶ文化を根づかせなければならない。この想いが、このプロジェクトの心臓部にあります。</p>
-                    </div>
+                    <h3 class="organizer-names">札幌すごいAI会 / AIサムライ</h3>
+                    <p class="organizer-bio">
+                        札幌を拠点に、AIを学び・挑み・楽しむ文化を育てるコミュニティです。定期的なイベントや勉強会を通じて、AIを使いこなす人を増やしています。
+                    </p>
                     <div class="organizer-social">
+                        <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="social-link">
+                            💬 Discord: 札幌すごいAI会
+                        </a>
                         <a href="https://twitter.com/ykishimotoy" target="_blank" rel="noopener noreferrer" class="social-link">
                             X (Twitter): @ykishimotoy
                         </a>
@@ -376,23 +376,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>札幌すごいAIまつり</h3>
-                    <p>Sapporo Sugoi AI Festival 2026</p>
+                    <h3>札幌AI映画祭2026夏</h3>
+                    <p>Sapporo AI Film Festival 2026 Summer</p>
                 </div>
                 <div class="footer-links">
-                    <a href="https://dojo.sugoiai.org/index.html" target="_blank" rel="noopener noreferrer">すごいAI道場</a>
+                    <a href="#overview">開催概要</a>
+                    <a href="#divisions">募集部門</a>
+                    <a href="#apply">応募について</a>
                     <a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer">Discord</a>
-                    <a href="https://camp-fire.jp/projects/892256/view" target="_blank" rel="noopener noreferrer">CAMPFIRE</a>
                 </div>
                 <div class="footer-info">
-                    <p>主催：札幌すごいAI会</p>
+                    <p>主催：札幌すごいAI会 / AIサムライ</p>
                     <p>会場協力：Deep Tech CORE SAPPORO</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 札幌すごいAI会 All rights reserved.</p>
                 <p class="footer-disclaimer">※本イベントは個人有志による活動であり、特定の企業・団体を代表するものではありません。</p>
-                <p class="footer-hashtag">#札幌すごいAIまつり</p>
+                <p class="footer-hashtag">#札幌AI映画祭</p>
             </div>
         </div>
     </footer>

@@ -1,11 +1,11 @@
-// Flame Animation for Overview Section
-class FlameAnimation {
+// Film Grain Animation for Overview Section
+class FilmGrainAnimation {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
 
         this.ctx = this.canvas.getContext('2d');
-        this.flames = [];
+        this.particles = [];
         this.resize();
         this.init();
 
@@ -20,17 +20,16 @@ class FlameAnimation {
     }
 
     init() {
-        // Create flame particles
-        const numFlames = Math.floor(this.canvas.width / 50);
-        for (let i = 0; i < numFlames; i++) {
-            this.flames.push({
+        const numParticles = Math.floor(this.canvas.width / 40);
+        for (let i = 0; i < numParticles; i++) {
+            this.particles.push({
                 x: Math.random() * this.canvas.width,
                 y: this.canvas.height + Math.random() * 100,
-                size: Math.random() * 60 + 40,
-                speed: Math.random() * 1 + 0.5,
-                opacity: Math.random() * 0.3 + 0.1,
+                size: Math.random() * 50 + 30,
+                speed: Math.random() * 0.8 + 0.3,
+                opacity: Math.random() * 0.2 + 0.05,
                 wobble: Math.random() * Math.PI * 2,
-                wobbleSpeed: Math.random() * 0.03 + 0.01
+                wobbleSpeed: Math.random() * 0.02 + 0.008
             });
         }
     }
@@ -38,53 +37,148 @@ class FlameAnimation {
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.flames.forEach(flame => {
-            // Update position
-            flame.y -= flame.speed;
-            flame.wobble += flame.wobbleSpeed;
+        this.particles.forEach(p => {
+            p.y -= p.speed;
+            p.wobble += p.wobbleSpeed;
 
-            // Reset if flame goes off screen
-            if (flame.y + flame.size < 0) {
-                flame.y = this.canvas.height + flame.size;
-                flame.x = Math.random() * this.canvas.width;
+            if (p.y + p.size < 0) {
+                p.y = this.canvas.height + p.size;
+                p.x = Math.random() * this.canvas.width;
             }
 
-            // Calculate wobble offset
-            const wobbleX = Math.sin(flame.wobble) * 20;
+            const wobbleX = Math.sin(p.wobble) * 15;
 
-            // Draw flame with gradient
+            // Purple-cyan gradient orbs
             const gradient = this.ctx.createRadialGradient(
-                flame.x + wobbleX, flame.y, 0,
-                flame.x + wobbleX, flame.y, flame.size
+                p.x + wobbleX, p.y, 0,
+                p.x + wobbleX, p.y, p.size
             );
-
-            // Flame colors - from center (bright) to edges (transparent)
-            gradient.addColorStop(0, `rgba(255, 200, 0, ${flame.opacity * 0.8})`);
-            gradient.addColorStop(0.3, `rgba(255, 100, 0, ${flame.opacity * 0.6})`);
-            gradient.addColorStop(0.6, `rgba(255, 50, 0, ${flame.opacity * 0.3})`);
-            gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
+            gradient.addColorStop(0, `rgba(157, 78, 221, ${p.opacity * 0.7})`);
+            gradient.addColorStop(0.4, `rgba(100, 50, 180, ${p.opacity * 0.4})`);
+            gradient.addColorStop(0.8, `rgba(0, 212, 255, ${p.opacity * 0.2})`);
+            gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
 
             this.ctx.fillStyle = gradient;
             this.ctx.beginPath();
-            this.ctx.arc(flame.x + wobbleX, flame.y, flame.size, 0, Math.PI * 2);
+            this.ctx.arc(p.x + wobbleX, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
 
-            // Add some flicker effect
-            flame.opacity = Math.max(0.05, Math.min(0.4, flame.opacity + (Math.random() - 0.5) * 0.02));
+            p.opacity = Math.max(0.03, Math.min(0.3, p.opacity + (Math.random() - 0.5) * 0.01));
         });
 
         requestAnimationFrame(() => this.animate());
     }
 }
 
-// Blazing Flame Animation for Programs Section (more intense)
-class BlazingFlameAnimation {
+// Projector Light Animation for Divisions Section
+class ProjectorAnimation {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
 
         this.ctx = this.canvas.getContext('2d');
-        this.flames = [];
+        this.beams = [];
+        this.particles = [];
+        this.resize();
+        this.init();
+
+        window.addEventListener('resize', () => this.resize());
+        this.animate();
+    }
+
+    resize() {
+        const section = this.canvas.parentElement;
+        this.canvas.width = section.offsetWidth;
+        this.canvas.height = section.offsetHeight;
+    }
+
+    init() {
+        // Create light beam sources from top
+        this.beams = [
+            { x: this.canvas.width * 0.25, angle: 0.15, spread: 0.12, opacity: 0.06 },
+            { x: this.canvas.width * 0.75, angle: -0.1, spread: 0.1, opacity: 0.05 }
+        ];
+
+        // Create floating particles (dust in light)
+        const numParticles = Math.floor(this.canvas.width / 15);
+        for (let i = 0; i < numParticles; i++) {
+            this.createParticle();
+        }
+    }
+
+    createParticle() {
+        this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            size: Math.random() * 2 + 0.5,
+            speedX: (Math.random() - 0.5) * 0.4,
+            speedY: (Math.random() - 0.5) * 0.3,
+            opacity: Math.random() * 0.3 + 0.05,
+            life: Math.random(),
+            decay: Math.random() * 0.003 + 0.001
+        });
+    }
+
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Draw light beams
+        this.beams.forEach(beam => {
+            const gradient = this.ctx.createRadialGradient(
+                beam.x, 0, 0,
+                beam.x, this.canvas.height, this.canvas.height * 0.8
+            );
+            gradient.addColorStop(0, `rgba(157, 78, 221, ${beam.opacity * 2})`);
+            gradient.addColorStop(0.3, `rgba(100, 50, 200, ${beam.opacity})`);
+            gradient.addColorStop(0.7, `rgba(0, 212, 255, ${beam.opacity * 0.5})`);
+            gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+
+            const halfWidth = this.canvas.height * beam.spread;
+            this.ctx.beginPath();
+            this.ctx.moveTo(beam.x, 0);
+            this.ctx.lineTo(beam.x + halfWidth + beam.angle * this.canvas.height, this.canvas.height);
+            this.ctx.lineTo(beam.x - halfWidth + beam.angle * this.canvas.height, this.canvas.height);
+            this.ctx.closePath();
+            this.ctx.fillStyle = gradient;
+            this.ctx.fill();
+        });
+
+        // Draw floating particles
+        this.particles.forEach((p, index) => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+            p.life -= p.decay;
+
+            if (p.x < 0) p.x = this.canvas.width;
+            if (p.x > this.canvas.width) p.x = 0;
+            if (p.y < 0) p.y = this.canvas.height;
+            if (p.y > this.canvas.height) p.y = 0;
+
+            if (p.life <= 0) {
+                this.particles.splice(index, 1);
+                this.createParticle();
+                return;
+            }
+
+            const alpha = p.opacity * p.life;
+            this.ctx.fillStyle = `rgba(157, 78, 221, ${alpha})`;
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Spark / Star Animation for Awards Section
+class SparkAnimation {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+
+        this.ctx = this.canvas.getContext('2d');
+        this.stars = [];
         this.sparks = [];
         this.resize();
         this.init();
@@ -100,121 +194,93 @@ class BlazingFlameAnimation {
     }
 
     init() {
-        // Create more intense flame particles
-        const numFlames = Math.floor(this.canvas.width / 30);
-        for (let i = 0; i < numFlames; i++) {
-            this.flames.push({
+        const numStars = Math.floor((this.canvas.width * this.canvas.height) / 4000);
+        for (let i = 0; i < numStars; i++) {
+            this.stars.push({
                 x: Math.random() * this.canvas.width,
-                y: this.canvas.height + Math.random() * 200,
-                size: Math.random() * 100 + 60,
-                speed: Math.random() * 2.5 + 1.5,
-                opacity: Math.random() * 0.5 + 0.3,
-                wobble: Math.random() * Math.PI * 2,
-                wobbleSpeed: Math.random() * 0.05 + 0.02,
-                wobbleIntensity: Math.random() * 40 + 20
+                y: Math.random() * this.canvas.height,
+                size: Math.random() * 1.5 + 0.5,
+                opacity: Math.random() * 0.5 + 0.1,
+                twinkleSpeed: Math.random() * 0.03 + 0.01,
+                twinkleOffset: Math.random() * Math.PI * 2
             });
         }
 
-        // Create sparks
-        const numSparks = Math.floor(this.canvas.width / 20);
+        const numSparks = Math.floor(this.canvas.width / 25);
         for (let i = 0; i < numSparks; i++) {
             this.createSpark();
         }
     }
 
     createSpark() {
+        const isGold = Math.random() > 0.5;
         this.sparks.push({
             x: Math.random() * this.canvas.width,
-            y: this.canvas.height + Math.random() * 100,
-            size: Math.random() * 4 + 2,
-            speed: Math.random() * 3 + 2,
-            opacity: Math.random() * 0.8 + 0.2,
+            y: this.canvas.height + Math.random() * 50,
+            size: Math.random() * 3 + 1,
+            speed: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.7 + 0.2,
             wobble: Math.random() * Math.PI * 2,
-            wobbleSpeed: Math.random() * 0.1 + 0.05,
+            wobbleSpeed: Math.random() * 0.08 + 0.03,
             life: 1.0,
-            decay: Math.random() * 0.01 + 0.005
+            decay: Math.random() * 0.008 + 0.003,
+            isGold: isGold
         });
     }
 
-    animate() {
+    animate(timestamp = 0) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Draw flames
-        this.flames.forEach(flame => {
-            // Update position
-            flame.y -= flame.speed;
-            flame.wobble += flame.wobbleSpeed;
+        // Draw twinkling stars
+        this.stars.forEach(star => {
+            star.twinkleOffset += star.twinkleSpeed;
+            const twinkle = Math.sin(star.twinkleOffset) * 0.3 + 0.7;
+            const alpha = star.opacity * twinkle;
 
-            // Reset if flame goes off screen
-            if (flame.y + flame.size < 0) {
-                flame.y = this.canvas.height + flame.size;
-                flame.x = Math.random() * this.canvas.width;
-            }
-
-            // Calculate wobble offset (more intense)
-            const wobbleX = Math.sin(flame.wobble) * flame.wobbleIntensity;
-
-            // Draw flame with intense gradient
-            const gradient = this.ctx.createRadialGradient(
-                flame.x + wobbleX, flame.y, 0,
-                flame.x + wobbleX, flame.y, flame.size
-            );
-
-            // More intense flame colors
-            gradient.addColorStop(0, `rgba(255, 255, 200, ${flame.opacity * 0.9})`);
-            gradient.addColorStop(0.2, `rgba(255, 200, 0, ${flame.opacity * 0.8})`);
-            gradient.addColorStop(0.4, `rgba(255, 120, 0, ${flame.opacity * 0.7})`);
-            gradient.addColorStop(0.6, `rgba(255, 60, 0, ${flame.opacity * 0.5})`);
-            gradient.addColorStop(0.8, `rgba(200, 0, 0, ${flame.opacity * 0.3})`);
-            gradient.addColorStop(1, 'rgba(100, 0, 0, 0)');
-
-            this.ctx.fillStyle = gradient;
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
             this.ctx.beginPath();
-            this.ctx.arc(flame.x + wobbleX, flame.y, flame.size, 0, Math.PI * 2);
+            this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
             this.ctx.fill();
-
-            // Intense flicker effect
-            flame.opacity = Math.max(0.2, Math.min(0.8, flame.opacity + (Math.random() - 0.5) * 0.05));
         });
 
-        // Draw sparks
+        // Draw rising sparks
         this.sparks.forEach((spark, index) => {
-            // Update position
             spark.y -= spark.speed;
             spark.wobble += spark.wobbleSpeed;
             spark.life -= spark.decay;
 
-            // Remove dead sparks
             if (spark.life <= 0 || spark.y < -10) {
                 this.sparks.splice(index, 1);
                 this.createSpark();
                 return;
             }
 
-            const wobbleX = Math.sin(spark.wobble) * 10;
+            const wobbleX = Math.sin(spark.wobble) * 8;
+            const alpha = spark.opacity * spark.life;
 
-            // Draw spark
+            const r = spark.isGold ? 255 : 157;
+            const g = spark.isGold ? 200 : 78;
+            const b = spark.isGold ? 0 : 221;
+
             const sparkGradient = this.ctx.createRadialGradient(
                 spark.x + wobbleX, spark.y, 0,
-                spark.x + wobbleX, spark.y, spark.size
+                spark.x + wobbleX, spark.y, spark.size * 2
             );
-
-            const alpha = spark.opacity * spark.life;
             sparkGradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
-            sparkGradient.addColorStop(0.5, `rgba(255, 200, 100, ${alpha * 0.8})`);
-            sparkGradient.addColorStop(1, `rgba(255, 100, 0, 0)`);
+            sparkGradient.addColorStop(0.4, `rgba(${r}, ${g}, ${b}, ${alpha * 0.8})`);
+            sparkGradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
             this.ctx.fillStyle = sparkGradient;
             this.ctx.beginPath();
-            this.ctx.arc(spark.x + wobbleX, spark.y, spark.size, 0, Math.PI * 2);
+            this.ctx.arc(spark.x + wobbleX, spark.y, spark.size * 2, 0, Math.PI * 2);
             this.ctx.fill();
         });
 
-        requestAnimationFrame(() => this.animate());
+        requestAnimationFrame((ts) => this.animate(ts));
     }
 }
 
-// Ripple Animation for AI Dojo Section
+// Ripple Animation for About Section
 class RippleAnimation {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -238,7 +304,6 @@ class RippleAnimation {
     }
 
     initRipplePoints() {
-        // Create fixed points where ripples originate
         this.ripplePoints = [
             { x: this.canvas.width * 0.2, y: this.canvas.height * 0.3 },
             { x: this.canvas.width * 0.5, y: this.canvas.height * 0.5 },
@@ -249,65 +314,57 @@ class RippleAnimation {
     }
 
     init() {
-        // Start creating ripples periodically
         this.lastRippleTime = 0;
-        this.rippleInterval = 1200; // Create new ripple every 1.2 seconds
+        this.rippleInterval = 1400;
     }
 
     createRipple(point) {
+        const isPurple = Math.random() > 0.4;
         this.ripples.push({
             x: point.x,
             y: point.y,
             radius: 0,
             maxRadius: Math.max(this.canvas.width, this.canvas.height) * 0.6,
-            speed: 1.5,
-            opacity: 0.6,
-            lineWidth: 3,
-            color: {
-                r: 255,
-                g: Math.floor(Math.random() * 100 + 100), // 100-200
-                b: 0
-            }
+            speed: 1.2,
+            opacity: 0.5,
+            lineWidth: 2.5,
+            color: isPurple
+                ? { r: 157, g: 78, b: 221 }
+                : { r: 0,   g: 212, b: 255 }
         });
     }
 
     animate(timestamp = 0) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Create new ripples periodically
         if (timestamp - this.lastRippleTime > this.rippleInterval) {
             const randomPoint = this.ripplePoints[Math.floor(Math.random() * this.ripplePoints.length)];
             this.createRipple(randomPoint);
             this.lastRippleTime = timestamp;
         }
 
-        // Draw and update ripples
         this.ripples.forEach((ripple, index) => {
-            // Update ripple
             ripple.radius += ripple.speed;
             ripple.opacity = Math.max(0, 1 - (ripple.radius / ripple.maxRadius));
-            ripple.lineWidth = 3 * ripple.opacity;
+            ripple.lineWidth = 2.5 * ripple.opacity;
 
-            // Remove ripple if it's too faded
             if (ripple.opacity <= 0) {
                 this.ripples.splice(index, 1);
                 return;
             }
 
-            // Draw ripple circle
             this.ctx.beginPath();
             this.ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-            this.ctx.strokeStyle = `rgba(${ripple.color.r}, ${ripple.color.g}, ${ripple.color.b}, ${ripple.opacity * 0.8})`;
+            this.ctx.strokeStyle = `rgba(${ripple.color.r}, ${ripple.color.g}, ${ripple.color.b}, ${ripple.opacity * 0.7})`;
             this.ctx.lineWidth = ripple.lineWidth;
             this.ctx.stroke();
 
-            // Draw inner glow
             const gradient = this.ctx.createRadialGradient(
                 ripple.x, ripple.y, ripple.radius - 20,
                 ripple.x, ripple.y, ripple.radius
             );
             gradient.addColorStop(0, `rgba(${ripple.color.r}, ${ripple.color.g}, ${ripple.color.b}, 0)`);
-            gradient.addColorStop(1, `rgba(${ripple.color.r}, ${ripple.color.g}, ${ripple.color.b}, ${ripple.opacity * 0.15})`);
+            gradient.addColorStop(1, `rgba(${ripple.color.r}, ${ripple.color.g}, ${ripple.color.b}, ${ripple.opacity * 0.12})`);
 
             this.ctx.fillStyle = gradient;
             this.ctx.fill();
@@ -317,116 +374,17 @@ class RippleAnimation {
     }
 }
 
-// Sandstorm Animation for Value Proposition Section
-class SandstormAnimation {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) return;
-
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.resize();
-        this.init();
-
-        window.addEventListener('resize', () => this.resize());
-        this.animate();
-    }
-
-    resize() {
-        const section = this.canvas.parentElement;
-        this.canvas.width = section.offsetWidth;
-        this.canvas.height = section.offsetHeight;
-    }
-
-    init() {
-        // Create sand particles
-        const numParticles = Math.floor((this.canvas.width * this.canvas.height) / 3000);
-        for (let i = 0; i < numParticles; i++) {
-            this.createParticle();
-        }
-    }
-
-    createParticle() {
-        const colors = [
-            { r: 255, g: 69, b: 0 },    // Flame red
-            { r: 255, g: 107, b: 53 },  // Flame orange
-            { r: 255, g: 165, b: 0 },   // Orange
-            { r: 200, g: 100, b: 0 },   // Dark orange
-            { r: 150, g: 50, b: 0 }     // Very dark orange
-        ];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        this.particles.push({
-            x: Math.random() * this.canvas.width,
-            y: Math.random() * this.canvas.height,
-            size: Math.random() * 2 + 0.5,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.3,
-            opacity: Math.random() * 0.15 + 0.05,
-            color: color,
-            life: 1.0,
-            decay: Math.random() * 0.002 + 0.001
-        });
-    }
-
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Update and draw particles
-        this.particles.forEach((particle, index) => {
-            // Update position
-            particle.x += particle.speedX;
-            particle.y += particle.speedY;
-            particle.life -= particle.decay;
-
-            // Wrap around screen edges
-            if (particle.x < 0) particle.x = this.canvas.width;
-            if (particle.x > this.canvas.width) particle.x = 0;
-            if (particle.y < 0) particle.y = this.canvas.height;
-            if (particle.y > this.canvas.height) particle.y = 0;
-
-            // Reset particle if life is over
-            if (particle.life <= 0) {
-                this.particles.splice(index, 1);
-                this.createParticle();
-                return;
-            }
-
-            // Draw particle
-            const alpha = particle.opacity * particle.life;
-            this.ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${alpha})`;
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            this.ctx.fill();
-
-            // Add slight glow
-            this.ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${alpha * 0.3})`;
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.size * 1.5, 0, Math.PI * 2);
-            this.ctx.fill();
-        });
-
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
-// Scroll Animation Observer
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize flame animation for overview section
-    const flameAnimation = new FlameAnimation('flameCanvas');
+    new FilmGrainAnimation('filmGrainCanvas');
+    new ProjectorAnimation('projectorCanvas');
+    new SparkAnimation('sparkCanvas');
+    new RippleAnimation('rippleCanvas');
 
-    // Initialize blazing flame animation for programs section
-    const blazingFlameAnimation = new BlazingFlameAnimation('blazingFlameCanvas');
-
-    // Initialize ripple animation for AI Dojo section
-    const rippleAnimation = new RippleAnimation('rippleCanvas');
-
-    // Initialize sandstorm animation for value proposition section
-    const sandstormAnimation = new SandstormAnimation('sandstormCanvas');
-    // Initialize Intersection Observer for scroll animations
+    // Scroll reveal
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -80px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -438,8 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe all sections and cards for animation
-    const animatedElements = document.querySelectorAll('.section, .program-card, .organizer-content');
+    const animatedElements = document.querySelectorAll('.section, .division-card, .award-card, .apply-card');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -447,50 +404,45 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Hero section should be visible immediately
+    // Hero always visible
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
     }
 
-    // Add smooth scroll behavior for internal links
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 
-    // Add flame particles interaction on mouse move
+    // Film particle parallax on hero
     const hero = document.querySelector('.hero');
-    const flameParticles = document.querySelectorAll('.flame-particle');
+    const filmParticles = document.querySelectorAll('.film-particle');
 
-    if (hero && flameParticles.length > 0) {
+    if (hero && filmParticles.length > 0) {
         hero.addEventListener('mousemove', (e) => {
             const { clientX, clientY } = e;
             const { innerWidth, innerHeight } = window;
 
-            flameParticles.forEach((particle, index) => {
-                const xMove = (clientX / innerWidth - 0.5) * 50;
-                const yMove = (clientY / innerHeight - 0.5) * 50;
+            filmParticles.forEach((particle, index) => {
+                const xMove = (clientX / innerWidth - 0.5) * 40;
+                const yMove = (clientY / innerHeight - 0.5) * 30;
                 const delay = index * 0.1;
-
                 particle.style.transform = `translate(${xMove}px, ${yMove}px)`;
                 particle.style.transition = `transform ${0.5 + delay}s ease-out`;
             });
         });
     }
 
-    // Add button hover glow effect enhancement
-    const primaryButtons = document.querySelectorAll('.btn-primary');
-    primaryButtons.forEach(btn => {
+    // Button hover glow
+    document.querySelectorAll('.btn-primary').forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             btn.style.animation = 'pulse 1s infinite';
         });
@@ -499,95 +451,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add CSS for pulse animation
+    // Pulse keyframe
     const style = document.createElement('style');
     style.textContent = `
         @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 60px rgba(255, 69, 0, 0.8);
-            }
+            0%, 100% { box-shadow: 0 0 30px rgba(157, 78, 221, 0.5); }
+            50%       { box-shadow: 0 0 60px rgba(157, 78, 221, 0.9); }
         }
     `;
     document.head.appendChild(style);
 
-    // Parallax effect for sections
-    let ticking = false;
+    // Scroll progress bar
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #7B2FBE, #9D4EDD, #00D4FF);
+        z-index: 9999;
+        transition: width 0.1s ease;
+    `;
+    document.body.appendChild(progressBar);
 
     window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrolled = window.pageYOffset;
-
-                // Apply parallax to flame particles
-                flameParticles.forEach((particle, index) => {
-                    const speed = 0.5 + (index * 0.1);
-                    particle.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-
-                ticking = false;
-            });
-            ticking = true;
-        }
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.pageYOffset / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
     });
 
-    // Add scroll progress indicator
-    const createScrollProgress = () => {
-        const progressBar = document.createElement('div');
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #FF4500, #FF6B35, #FFA500);
-            z-index: 9999;
-            transition: width 0.1s ease;
-        `;
-        document.body.appendChild(progressBar);
-
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.pageYOffset / windowHeight) * 100;
-            progressBar.style.width = scrolled + '%';
-        });
-    };
-
-    createScrollProgress();
-
-    // Add loading animation
+    // Page fade-in
     window.addEventListener('load', () => {
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.5s ease';
         setTimeout(() => {
             document.body.style.opacity = '1';
         }, 100);
-    });
-
-    // Add CTA button tracking (console log for demonstration)
-    const ctaButtons = document.querySelectorAll('.btn');
-    ctaButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const buttonText = btn.querySelector('.btn-text')?.textContent || btn.textContent.trim();
-            console.log('CTA Button clicked:', buttonText);
-            // Here you could add analytics tracking
-        });
-    });
-
-    // Responsive navigation for mobile (if needed in future)
-    const checkMobile = () => {
-        return window.innerWidth <= 768;
-    };
-
-    // Add window resize handler
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            console.log('Window resized:', window.innerWidth);
-            // Add responsive adjustments if needed
-        }, 250);
     });
 });
