@@ -827,10 +827,25 @@ body {
 .award-card {
     background: var(--dark-elevated);
     border-radius: 16px;
-    padding: var(--spacing-lg);
+    overflow: hidden;
     text-align: center;
     border: 1px solid rgba(157, 78, 221, 0.2);
     transition: all 0.3s ease;
+}
+
+.award-image-wrap {
+    width: 100%;
+}
+
+.award-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.award-body {
+    padding: var(--spacing-lg);
 }
 
 .award-card:hover {

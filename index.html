@@ -186,7 +186,7 @@
                         <div class="division-badge badge-main">メイン部門</div>
                         <h3 class="division-title">上映作品部門</h3>
                         <p class="division-subtitle">Screening Division</p>
-                        <p class="division-duration">上映時間：<strong>3分〜10分</strong></p>
+                        <p class="division-duration">上映時間：<strong>3分〜10分</strong>　／　アスペクト比：<strong>16:9</strong></p>
                         <p class="division-description">
                             ストーリー、アート、MV……ジャンルは何でもOK。AI生成を主要手法として作られた映像作品なら応募できます。一部実写との組み合わせも可。言語自由・架空言語もOK（日本語以外・不自然な日本語の作品は日本語字幕必須）。
                         </p>
@@ -214,7 +214,7 @@
                         <div class="division-badge badge-exp">Experimental</div>
                         <h3 class="division-title">実験部門</h3>
                         <p class="division-subtitle">Experimental Division</p>
-                        <p class="division-duration">上映時間：<strong>1分〜5分</strong></p>
+                        <p class="division-duration">上映時間：<strong>1分〜5分</strong>　／　アスペクト比：<strong>16:9</strong></p>
                         <p class="division-description">
                             「AIで動画ってどうやるの？」「とりあえず触ってみたやつがあるんだけど…」——そのくらいの熱量で全然OK。まず出してみることが大事な部門です。
                         </p>
@@ -257,6 +257,7 @@
                     <ul class="apply-list">
                         <li><a href="https://discord.gg/Ve2tQeN7cw" target="_blank" rel="noopener noreferrer" class="guideline-link">Discord（札幌すごいAI会）</a>の映画祭チャンネルで「応募します！」と宣言すること</li>
                         <li>AI生成ツールを使用した映像作品であること（一部実写・実写との組み合わせも可）</li>
+                        <li>アスペクト比 <strong>16:9</strong> で制作すること（解像度 1080p 以上推奨）</li>
                         <li>応募者自身が制作した作品であること</li>
                         <li>著作権・肖像権等の権利を侵害していないこと</li>
                         <li>言語は自由（架空・人造言語など、存在しない言語も可）</li>
@@ -318,16 +319,24 @@
             </div>
             <div class="awards-grid">
                 <div class="award-card award-main">
-                    <div class="award-icon"><img src="winner.png" alt="作品賞" style="width:2.5rem;height:2.5rem;object-fit:contain;"></div>
-                    <h3 class="award-title">作品賞</h3>
-                    <p class="award-division">上映作品部門</p>
-                    <p class="award-description">上映作品部門の応募作品の中から、最も優れた作品に授与します。</p>
+                    <div class="award-image-wrap">
+                        <img src="images/winner.png" alt="作品賞" class="award-image">
+                    </div>
+                    <div class="award-body">
+                        <h3 class="award-title">作品賞</h3>
+                        <p class="award-division">上映作品部門</p>
+                        <p class="award-description">上映作品部門の応募作品の中から、最も優れた作品に授与します。</p>
+                    </div>
                 </div>
                 <div class="award-card award-exp">
-                    <div class="award-icon"><img src="flask.png" alt="実験部門賞" style="width:2.5rem;height:2.5rem;object-fit:contain;"></div>
-                    <h3 class="award-title">実験部門賞</h3>
-                    <p class="award-division">実験部門 (Experimental)</p>
-                    <p class="award-description">実験部門の応募作品の中から、最も挑戦的・革新的な作品に授与します。</p>
+                    <div class="award-image-wrap">
+                        <img src="images/flask.png" alt="実験部門賞" class="award-image">
+                    </div>
+                    <div class="award-body">
+                        <h3 class="award-title">実験部門賞</h3>
+                        <p class="award-division">実験部門 (Experimental)</p>
+                        <p class="award-description">実験部門の応募作品の中から、最も優れた作品に授与します。</p>
+                    </div>
                 </div>
             </div>
         </div>
