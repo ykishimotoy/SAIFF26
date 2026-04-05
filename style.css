@@ -571,6 +571,12 @@ body {
     color: var(--film-cyan);
 }
 
+.badge-special {
+    background: rgba(255, 180, 0, 0.15);
+    border: 1px solid #ffb400;
+    color: #ffb400;
+}
+
 .division-title {
     font-size: 1.8rem;
     font-weight: 900;
@@ -617,6 +623,11 @@ body {
     border-left-color: var(--film-cyan);
 }
 
+.division-special .division-highlight {
+    background: rgba(255, 180, 0, 0.08);
+    border-left-color: #ffb400;
+}
+
 .division-details {
     border-top: 1px solid rgba(157, 78, 221, 0.15);
     padding-top: var(--spacing-sm);
@@ -655,6 +666,14 @@ body {
 
 .division-exp .division-details ul li::before {
     color: var(--film-cyan);
+}
+
+.division-special .division-details h4 {
+    color: #ffb400;
+}
+
+.division-special .division-details ul li::before {
+    color: #ffb400;
 }
 
 .division-broadcast {
