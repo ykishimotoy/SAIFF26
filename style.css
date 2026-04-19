@@ -1280,6 +1280,289 @@ body {
     font-weight: 700;
 }
 
+/* ─── Sponsor Page ─── */
+.sp-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(ellipse at center top, #1a0a2e 0%, var(--dark-bg) 60%);
+    overflow: hidden;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.sp-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.sp-back-link {
+    display: inline-block;
+    color: var(--film-cyan);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.sp-back-link:hover {
+    color: var(--film-purple);
+}
+
+.sp-hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-top: var(--spacing-md);
+}
+
+.sp-past-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.sp-video-wrap {
+    text-align: center;
+}
+
+.sp-past-image-wrap {
+    text-align: center;
+}
+
+.sp-video-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.05em;
+}
+
+.sp-past-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(157, 78, 221, 0.3);
+}
+
+.sp-video-iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(157, 78, 221, 0.3);
+}
+
+.sp-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.sp-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.sp-benefit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background: var(--dark-elevated);
+    border-radius: 16px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid rgba(157, 78, 221, 0.15);
+    transition: border-color 0.3s ease;
+}
+
+.sp-benefit-row:hover {
+    border-color: rgba(157, 78, 221, 0.4);
+}
+
+.sp-benefit-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
+}
+
+.sp-benefit-body {
+    flex: 1;
+}
+
+.sp-benefit-body .apply-card-title {
+    margin-bottom: 0.5rem;
+}
+
+.sp-plan-section {
+    background: var(--dark-bg);
+}
+
+.sp-plan-section.overview {
+    background: var(--dark-surface);
+}
+
+.sp-plan-card {
+    background: var(--dark-elevated);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.sp-plan-header {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+    border-bottom: 1px solid rgba(157, 78, 221, 0.15);
+    text-align: center;
+}
+
+.sp-tier-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.sp-badge-platinum {
+    background: rgba(0, 212, 255, 0.15);
+    border: 1px solid var(--film-cyan);
+    color: var(--film-cyan);
+}
+
+.sp-tier-title {
+    font-size: 2rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.sp-tier-icon {
+    font-size: 2rem;
+}
+
+.sp-tier-platinum {
+    background: linear-gradient(135deg, var(--film-cyan), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sp-tier-gold {
+    background: linear-gradient(135deg, var(--film-gold), #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sp-tier-silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sp-plan-price {
+    font-size: 2.8rem;
+    font-weight: 900;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0.5rem 0;
+}
+
+.sp-price-gold {
+    background: linear-gradient(135deg, var(--film-gold), #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sp-price-silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sp-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.sp-price-sep {
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.sp-barter-note {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.35rem 1rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--film-cyan);
+    letter-spacing: 0.05em;
+}
+
+.sp-plan-catch {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.sp-plan-tagline {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 0.5rem;
+}
+
+.sp-plan-body {
+    padding: var(--spacing-lg);
+}
+
+.sp-benefits-heading {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--film-purple);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.sp-platinum .sp-plan-card {
+    border-color: rgba(0, 212, 255, 0.35);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+    .sp-tier-title {
+        font-size: 1.6rem;
+    }
+    .sp-plan-price {
+        font-size: 2.2rem;
+    }
+}
+
 /* ─── Animations ─── */
 @keyframes fadeIn {
     from { opacity: 0; }
