@@ -1776,7 +1776,12 @@ body {
     width: 100%;
     border-collapse: collapse;
     font-size: 1rem;
-    min-width: 480px;
+}
+
+@media (min-width: 601px) {
+    .screening-table {
+        min-width: 480px;
+    }
 }
 
 .screening-table thead tr {
