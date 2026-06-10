@@ -1759,3 +1759,158 @@ body {
         max-width: 280px;
     }
 }
+
+/* ─── Screening Works Section ─── */
+.screening {
+    background: var(--dark-surface);
+}
+
+.screening-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(157, 78, 221, 0.25);
+    box-shadow: 0 0 40px rgba(157, 78, 221, 0.08);
+}
+
+.screening-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    min-width: 480px;
+}
+
+.screening-table thead tr {
+    background: linear-gradient(90deg, rgba(123, 47, 190, 0.6) 0%, rgba(0, 168, 204, 0.4) 100%);
+}
+
+.screening-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--film-cyan);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+    white-space: nowrap;
+}
+
+.screening-table th:last-child {
+    text-align: center;
+}
+
+.screening-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+}
+
+.screening-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.screening-table tbody tr:hover {
+    background: rgba(157, 78, 221, 0.08);
+}
+
+.screening-table td {
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.screening-table td:first-child {
+    font-weight: 700;
+    color: #fff;
+}
+
+.screening-table td:last-child {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--film-cyan);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+/* 開場挨拶・表彰・幕間などの特殊行 */
+.screening-row-special td {
+    color: var(--film-gold);
+    font-weight: 700;
+}
+
+.screening-row-special td:last-child {
+    color: var(--film-gold);
+}
+
+.screening-row-intermission td {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.screening-row-intermission td:first-child {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.screening-row-intermission td:last-child {
+    color: var(--text-secondary);
+}
+
+/* Mobile: カード形式に切り替え */
+@media (max-width: 600px) {
+    .screening-table-wrap {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        overflow-x: visible;
+    }
+
+    .screening-table,
+    .screening-table tbody,
+    .screening-table tr,
+    .screening-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .screening-table thead {
+        display: none;
+    }
+
+    .screening-table tbody tr {
+        background: var(--dark-elevated);
+        border: 1px solid rgba(157, 78, 221, 0.2);
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
+        padding: 0.5rem 0;
+    }
+
+    .screening-table tbody tr:hover {
+        background: rgba(157, 78, 221, 0.12);
+    }
+
+    .screening-table td {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        padding: 0.55rem 1.1rem;
+        text-align: left;
+    }
+
+    .screening-table td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        width: 7.5em;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--film-cyan);
+        opacity: 0.75;
+    }
+
+    .screening-table td:last-child {
+        text-align: left;
+        color: var(--film-cyan);
+    }
+}
