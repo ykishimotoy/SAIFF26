@@ -1861,6 +1861,20 @@ body {
     color: var(--text-secondary);
 }
 
+.screening-row-purple td {
+    color: var(--film-purple);
+    font-style: italic;
+}
+
+.screening-row-purple td:first-child {
+    color: var(--film-purple);
+    font-weight: 400;
+}
+
+.screening-row-purple td:last-child {
+    color: var(--film-purple);
+}
+
 /* Mobile: カード形式に切り替え */
 @media (max-width: 600px) {
     .screening-table-wrap {
