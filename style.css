@@ -1704,12 +1704,20 @@ body {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
-    max-width: 700px;
+    max-width: 980px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* タブレット：2列 */
+@media (max-width: 900px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
 }
 
 .partner-card {
@@ -1744,6 +1752,13 @@ body {
     padding: var(--spacing-sm);
 }
 
+.partner-logo-text {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
 .partner-name {
     padding: var(--spacing-sm);
     font-size: 0.95rem;
@@ -1753,7 +1768,8 @@ body {
     background: var(--dark-elevated);
 }
 
-@media (max-width: 480px) {
+/* スマホ：1列 */
+@media (max-width: 600px) {
     .partners-grid {
         grid-template-columns: 1fr;
         max-width: 280px;
