@@ -261,6 +261,59 @@ body {
     animation: fadeInUp 1s ease-out 0.9s both;
 }
 
+/* ─── Hero Watch (現地配信 / 高画質再生) ─── */
+.hero-watch {
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.hero-watch-note {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto 1rem;
+}
+
+.hero-watch-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.hero-watch-caption {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0.85rem auto 0;
+}
+
+.btn-youtube {
+    background: #FF0000;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.35);
+}
+
+.btn-youtube:hover {
+    background: #cc0000;
+    box-shadow: 0 0 28px rgba(255, 0, 0, 0.55);
+    transform: translateY(-3px);
+}
+
+.btn-hd {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--film-cyan);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.btn-hd:hover {
+    background: rgba(0, 212, 255, 0.12);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.4);
+    transform: translateY(-3px);
+}
+
 /* ─── Buttons ─── */
 .btn {
     display: inline-flex;
