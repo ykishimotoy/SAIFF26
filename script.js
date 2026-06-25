@@ -481,6 +481,35 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = scrolled + '%';
     });
 
+    // Prize image lightbox (click / tap to enlarge)
+    const prizeImages = document.querySelectorAll('.prize-card-inner img');
+    if (prizeImages.length) {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'prize-lightbox';
+        lightbox.innerHTML = '<button class="prize-lightbox-close" aria-label="閉じる">&times;</button><img alt="">';
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('img');
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            document.body.style.overflow = '';
+        };
+
+        prizeImages.forEach((img) => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightbox.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    }
+
     // Page fade-in
     window.addEventListener('load', () => {
         document.body.style.opacity = '0';
